@@ -1,0 +1,27 @@
+{
+  "name": "do-something",
+  "version": "1.0.0",
+  "description": "RESTful api for finding simple jobs/chores",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karanev/do-something.git"
+  },
+  "keywords": [
+    "jobs"
+  ],
+  "author": "Karan Chaudhary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karanev/do-something/issues"
+  },
+  "homepage": "https://github.com/karanev/do-something#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7"
+  }
+}

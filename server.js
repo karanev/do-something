@@ -1,11 +1,18 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var session = require('express-session');
 
 var app = express();
 
 var config = require('./config');
 mongoose.connect(config.database, {useMongoClient : true});
+
+app.use(session({
+    secret : config.secretKey,
+    resave : true,
+    saveUninitialized : true
+}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

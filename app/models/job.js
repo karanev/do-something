@@ -13,9 +13,9 @@ module.exports = mongoose.model("Job", new Schema({
     },
     time : {
         type : Date,
-        required : [true, "Time of the job is required"]
+        default : Date.now,
     },
-    duratoin : {
+    duration : {
         type : Number,
         required : [true, "Time duration for the job is needed"]
     },

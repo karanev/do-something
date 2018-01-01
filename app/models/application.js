@@ -7,7 +7,7 @@ module.exports = mongoose.model("Application", new Schema({
         required : [true, "Username field is required"]
     },
     jobId : {
-        type : Number,
+        type : String,
         required : [true, "Job id is required"]
     }
 }));

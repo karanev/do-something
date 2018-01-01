@@ -154,5 +154,25 @@ router.delete("/job/:id", auth, function(req, res) {
     });
 });
 
+// Apply for a job with a job id
+router.post("/apply/:id", auth, function(req, res) {
+    if (req.body.username != req.session.username)
+        return res.json({"success" : false, "message" : "You are not authorized"});
+    Application.create(req.body, function(error, applicationPosted) {
+        if (error) throw error;
+        if (!applicationPosted) return res.json({"success" : false, "message" : "Failed to post job application"});
+        return res.json({"success" : true, application : applicationPosted});
+    });
+});
+
+// Get all job applications with a username
+router.get("/applications", auth, function(req, res) {
+    Application.find({"username" : req.session.username}, function(error, applications) {
+        if (error) throw error;
+        if (!applications) return res.json({"success" : true, "message" : "Failed to get any applications"});
+        return res.json({"success" : true, "applications" : applications});
+    });
+});
+
 // Return router
 module.exports = router;
